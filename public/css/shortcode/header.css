@@ -120,6 +120,7 @@
   display: block;
   float: left;
   font-size: 12px;
+  font-weight: bolder;
   line-height: 28px;
 }
 /* Header Top Right */
@@ -141,6 +142,7 @@
   display: block;
   float: left;
   font-size: 12px;
+  font-weight: bolder;
   line-height: 28px;
 }
 /* Header Bottom */

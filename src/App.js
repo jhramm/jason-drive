@@ -5,6 +5,10 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import BannerOverlay from './Components/BannerOverlay';
 import Content from './Components/Content';
+import CtaArea from './Components/CtaArea';
+import Features from './Components/Features';
+import Testimonial from './Components/Testimonial';
+import FacebookFeed from './Components/FacebookFeed';
 
 
 function App() {
@@ -19,6 +23,10 @@ function App() {
               <>
                 <BannerOverlay />
                 <Content />
+                <Features />
+                <Testimonial />
+                <FacebookFeed />
+                <CtaArea />
               </>
             }
           />

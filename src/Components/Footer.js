@@ -1,5 +1,6 @@
 import React from 'react';
 import{ Link} from 'react-router-dom';
+import Logo from '../img/logo.png';
 
 
 export default function Footer() {
@@ -8,7 +9,7 @@ export default function Footer() {
       <div className="container">
         <div className="row">
           <div className="footer-widget text-left col-lg-3 col-md-6 col-12">
-            <h4 className="widget-title">about drive on</h4>
+            <h4 className="widget-title">About Only Essex Driving</h4>
             <div className="about-widget">
               <p>
                 It is a long established fact that is a reader will be
@@ -16,6 +17,7 @@ export default function Footer() {
                 layout. it’s the more fact that is reader will be by the
                 readable looking its layout.
               </p>
+              <img src={Logo} alt='logo' />
             </div>
           </div>
           <div className="footer-widget text-left col-lg-3 col-md-6 col-12">
@@ -100,7 +102,7 @@ export default function Footer() {
           <div className="row">
             <div className="col-md-6 col-12 text-left">
               <p className="copyright">
-                Copyright &copy; <Link to="#">Driveon</Link> ALL Right Reserved
+                Copyright &copy; <Link to="#">Only Essex Driving</Link> ALL Right Reserved
               </p>
             </div>
             <div className="col-md-6 col-12 text-right">
@@ -111,15 +113,11 @@ export default function Footer() {
                 <Link to="#">
                   <i className="icofont icofont-social-twitter"></i>
                 </Link>
-                <Link to="#">
-                  <i className="icofont icofont-social-pinterest"></i>
-                </Link>
+               
                 <Link to="#">
                   <i className="icofont icofont-social-linkedin"></i>
                 </Link>
-                <Link to="#">
-                  <i className="icofont icofont-social-google-plus"></i>
-                </Link>
+               
                 <Link to="#">
                   <i className="icofont icofont-social-instagram"></i>
                 </Link>
