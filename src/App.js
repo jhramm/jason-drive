@@ -9,6 +9,7 @@ import CtaArea from './Components/CtaArea';
 import Features from './Components/Features';
 import Testimonial from './Components/Testimonial';
 import FacebookFeed from './Components/FacebookFeed';
+import Prices from './Components/Prices';
 
 
 function App() {
@@ -30,6 +31,12 @@ function App() {
               </>
             }
           />
+          <Route path='/prices' element={
+            <>
+            <BannerOverlay />
+            <Prices />
+            </>
+          }/>
         </Routes>
         <Footer />
       </div>

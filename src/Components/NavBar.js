@@ -38,6 +38,14 @@ function handleTabClick(tab) {
                     services<i className="icofont icofont-simple-down"></i>
                   </Link>
                 </li>
+                {/* <li
+                  className={isActive === "prices" ? "active" : ""}
+                  onClick={() => handleTabClick("prices")}
+                >
+                  <Link to="/prices">
+                    Prices<i className="icofont"></i>
+                  </Link>
+                </li> */}
                 <li>
                   <Link to="/blog">
                     blog<i className="icofont"></i>

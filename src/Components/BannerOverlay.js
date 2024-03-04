@@ -43,7 +43,7 @@ export default function BannerOverlay() {
                       book online
                     </Link>
                     <Link
-                      to="#"
+                      to="/prices"
                       className="btn color wow fadeInLeft"
                       data-wow-duration=".9s"
                       data-wow-delay="2s"
