@@ -10,6 +10,7 @@ import Features from './Components/Features';
 import Testimonial from './Components/Testimonial';
 import FacebookFeed from './Components/FacebookFeed';
 import Prices from './Components/Prices';
+import Contact from './Components/Contact';
 
 
 function App() {
@@ -31,12 +32,24 @@ function App() {
               </>
             }
           />
-          <Route path='/prices' element={
-            <>
-            <BannerOverlay />
-            <Prices />
-            </>
-          }/>
+          <Route
+            path="/prices"
+            element={
+              <>
+                <BannerOverlay />
+                <Prices />
+              </>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <>
+                <BannerOverlay />
+                <Contact />
+              </>
+            }
+          />
         </Routes>
         <Footer />
       </div>

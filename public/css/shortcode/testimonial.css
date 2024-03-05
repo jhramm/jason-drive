@@ -31,6 +31,7 @@
   display: inline-block;
   height: 90px;
   margin-top: 50px;
+  margin-bottom: 30px;
   transform: rotate(45deg);
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;

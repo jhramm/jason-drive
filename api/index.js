@@ -1,6 +1,7 @@
 let express = require('express');
 let cors = require('cors');
 
+const Packages = require("./Models/Packages");
 
 require("./DB/Conn");
 let app = express();
@@ -10,6 +11,30 @@ app.use(express.static("public"));
 
 
 let port = 8080;
+
+app.post("/addPackage", (req, res) => {
+  try {
+    const packages = new Packages(req.body);
+    packages.save().then(() => {
+      res.status(200).send(packages);
+    }).catch((e) => {
+      res.status(404).send("Could not save the package!");
+    })
+  }
+  catch {
+    res.status(500).send("External Server Error");
+  }
+})
+
+app.get("/packages", async (req, res) => {
+  try {
+    const allPackages = await Packages.find();
+    res.status(200).send(allPackages);
+  }
+  catch {
+     res.status(500).send("External Server Error");
+  }
+})
 
 
 app.listen(port, () => {

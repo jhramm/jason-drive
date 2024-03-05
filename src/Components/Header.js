@@ -11,11 +11,11 @@ export default function Header() {
             <div className="header-top-left text-left col-md-6 col-12">
               <p>
                 <i className="icofont icofont-envelope"></i>
-                <span>info@example.com</span>
+                <span>admin@onlyessexdriving.co.uk</span>
               </p>
               <p>
                 <i className="icofont icofont-ui-call"></i>
-                <span>+012 345 678 102 </span>
+                <span>0330 0883 795</span>
               </p>
             </div>
             <div className="header-top-right text-right col-md-6 col-12">
