@@ -1,5 +1,15 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import img1 from "../img/1.jpg";
+import img2 from "../img/2.jpg";
+import img3 from "../img/3.jpg";
+
+import "swiper/css";
+import "swiper/css/effect-cube";
+import "swiper/css/pagination";
+
+import { EffectCube, Pagination } from "swiper/modules";
 
 export default function BannerOverlay() {
   return (
@@ -50,6 +60,42 @@ export default function BannerOverlay() {
                     >
                       lesson prices
                     </Link>
+                  </div>
+                </div>
+                <div
+                  className="find-course-form float-left text-left wow fadeInUp"
+                  data-wow-duration=".9s"
+                  data-wow-delay="3s"
+                >
+                  <div className="swiper-container">
+                    <Swiper
+                      effect={"cube"}
+                      grabCursor={true}
+                      cubeEffect={{
+                        shadow: true,
+                        slideShadows: true,
+                        shadowOffset: 20,
+                        shadowScale: 0.94,
+                      }}
+                      pagination={true}
+                      loop={true}
+                      autoplay={{ delay: 2000 }}
+                      modules={[EffectCube, Pagination]}
+                      className="mySwiper"
+                    >
+                      <SwiperSlide>
+                        <img src={img1} alt="image1" />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <img src={img2} alt="image2" />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <img src={img3} alt="image3" />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <img src={img1} alt="image1" />
+                      </SwiperSlide>
+                    </Swiper>
                   </div>
                 </div>
                 {/* <div
