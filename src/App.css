@@ -534,14 +534,14 @@
   height: 100%;
 }
 
-.swiper-container{
+/* .swiper-container{
   background: #eee;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
   padding-top: 0;
   
-}
+} */
 
 .swiper {
   width: 300px;
