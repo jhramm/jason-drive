@@ -8,7 +8,7 @@ export default function CtaArea() {
         <div className="row">
           <div className="call-to-action text-left col-lg-10 col-12 mx-auto">
             <h3>Grab one of our great deals today</h3>
-            <Link to="#" className="btn transparent ">
+            <Link to="/prices" className="btn transparent ">
               Get Deal
             </Link>
           </div>

@@ -31,7 +31,7 @@
 }
 /* Price */
 .pricing-price {
-  background: rgba(0, 0, 0, 0) url("../../img/shape/pricing/price-border.png") no-repeat scroll center center ;
+  background: rgba(0, 0, 0, 0) url("../../../src/img/female.png") no-repeat scroll center center ;
   -webkit-background-size: cover ;
   background-size: cover ;
   display: block;
@@ -43,7 +43,7 @@
   width: 96px;
 }
 .single-pricing:hover .pricing-price, .active .pricing-price {
-  background-image: url("../../img/shape/pricing/price-border-color.png");
+  background-image: url("../../../src/img/price-border-color.png");
 }
 .pricing-price h2 {
   color: #ffffff;

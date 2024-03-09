@@ -1,17 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import img1 from "../img/1.jpg";
-import img2 from "../img/2.jpg";
-import img3 from "../img/3.jpg";
+import SwiperCore from "swiper/core";
+import { Autoplay } from "swiper/modules";
 
+import img1 from "../img/driver-training.jpeg";
+import img2 from "../img/learn-to-drive.jpeg";
+import img3 from "../img/pupil1.jpeg";
+import img4 from "../img/pass1.jpeg";
 import "swiper/css";
 import "swiper/css/effect-cube";
 import "swiper/css/pagination";
 
 import { EffectCube, Pagination } from "swiper/modules";
 
+
 export default function BannerOverlay() {
+  SwiperCore.use([Autoplay]);
   return (
     <div className="page-banner-area overlay overlay-black overlay-80">
       <div className="container">
@@ -32,20 +37,19 @@ export default function BannerOverlay() {
                     data-wow-duration=".9s"
                     data-wow-delay="1.2s"
                   >
-                    the best <span>safety</span> measures
+                    the <span>best driving school</span> in Essex
                   </h1>
                   <p
                     className="wow fadeInUp"
                     data-wow-duration=".9s"
                     data-wow-delay="1.6s"
                   >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    minim veniamsed sed do <br />
-                    eiusmod tempor maksu rez ut labore magna do eiusmod
+                   Book your driving lessons with a friendly reliable driving instructor<br />
+                   You are only one step away from gaining your driving licence
                   </p>
                   <div className="button-group">
                     <Link
-                      to="#"
+                      to="/bookonline"
                       className="btn transparent wow fadeInLeft"
                       data-wow-duration=".9s"
                       data-wow-delay="2.4s"
@@ -77,9 +81,9 @@ export default function BannerOverlay() {
                         shadowOffset: 20,
                         shadowScale: 0.94,
                       }}
-                      pagination={true}
+                      pagination={false}
                       loop={true}
-                      autoplay={{ delay: 2000 }}
+                      autoplay={{ delay: 6000 }}
                       modules={[EffectCube, Pagination]}
                       className="mySwiper"
                     >
@@ -93,7 +97,7 @@ export default function BannerOverlay() {
                         <img src={img3} alt="image3" />
                       </SwiperSlide>
                       <SwiperSlide>
-                        <img src={img1} alt="image1" />
+                        <img src={img4} alt="image4" />
                       </SwiperSlide>
                     </Swiper>
                   </div>

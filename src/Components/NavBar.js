@@ -31,7 +31,7 @@ function handleTabClick(tab) {
                   className={isActive === "about" ? "active" : ""}
                   onClick={() => handleTabClick("about")}
                 >
-                  <Link>about</Link>
+                  <Link to="/about">about</Link>
                 </li>
                 <li>
                   <Link>
@@ -47,7 +47,7 @@ function handleTabClick(tab) {
                   </Link>
                 </li> */}
                 <li>
-                  <Link>
+                  <Link to="/blog">
                     blog<i className="icofont"></i>
                   </Link>
                   {/* <ul>

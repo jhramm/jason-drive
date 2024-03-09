@@ -12,28 +12,29 @@ export default function Footer() {
             <h4 className="widget-title">About Only Essex Driving</h4>
             <div className="about-widget">
               <p>
-                It is a long established fact that is a reader will be
-                distracted by the readable content of page when looking at its
-                layout. it’s the more fact that is reader will be by the
-                readable looking its layout.
+                At Only Essex Driving, we prioritize your success. With
+                DVSA-approved instructors and affordable rates, we offer
+                top-notch training. Join us today and take the first step
+                towards driving excellence.
               </p>
-              <img src={Logo} alt='logo' />
+              <img src={Logo} alt="logo" />
             </div>
           </div>
           <div className="footer-widget text-left col-lg-3 col-md-6 col-12">
             <h4 className="widget-title">quick contact</h4>
             <div className="contact-widget">
               <p>
-                Flor. 4, House. 15, Block-C. <br />
-                Banasree Main Road, Dhaka.
+                Moor Lane, Upminster <br />
+                Essex, RM14 1EU.
               </p>
               <p>
-                +880 1912 345 678 <br />
-                +880 1912 345 678
+                0330 0883 795
+                <br />
+                0784 1646 842
               </p>
               <p>
-                <Link to="#">driveonskill@email.com</Link>
-                <Link to="#">www.driveon.com</Link>
+                <Link to="mailto:admin@onlyessexdriving.co.uk">admin@onlyessexdriving.co.uk</Link>
+                <Link to="http://onlyessexdriving.co.uk">onlyessexdriving.co.uk</Link>
               </p>
             </div>
           </div>
@@ -68,27 +69,27 @@ export default function Footer() {
               <ul>
                 <li>
                   <span className="float-left">Monday</span>
-                  <span className="float-right">08:00-18:00</span>
+                  <span className="float-right">09:00-20:00</span>
                 </li>
                 <li>
                   <span className="float-left">Tuesday</span>
-                  <span className="float-right">08:00-18:00</span>
+                  <span className="float-right">09:00-20:00</span>
                 </li>
                 <li>
                   <span className="float-left">Wednesday</span>
-                  <span className="float-right">08:00-18:00</span>
+                  <span className="float-right">09:00-20:00</span>
                 </li>
                 <li>
                   <span className="float-left">Thursday</span>
-                  <span className="float-right">08:00-18:00</span>
+                  <span className="float-right">09:00-20:00</span>
                 </li>
                 <li>
                   <span className="float-left">Friday</span>
-                  <span className="float-right">08:00-18:00</span>
+                  <span className="float-right">09:00-20:00</span>
                 </li>
                 <li>
                   <span className="float-left">Saturday</span>
-                  <span className="float-right">08:00-18:00</span>
+                  <span className="float-right">09:00-18:00</span>
                 </li>
                 <li>
                   <span className="float-left">Sunday</span>
@@ -102,7 +103,8 @@ export default function Footer() {
           <div className="row">
             <div className="col-md-6 col-12 text-left">
               <p className="copyright">
-                Copyright &copy; <Link to="#">Only Essex Driving</Link> ALL Right Reserved
+                Copyright &copy; <Link to="#">Only Essex Driving</Link> ALL
+                Right Reserved
               </p>
             </div>
             <div className="col-md-6 col-12 text-right">
@@ -113,11 +115,6 @@ export default function Footer() {
                 <Link to="#">
                   <i className="icofont icofont-social-twitter"></i>
                 </Link>
-               
-                <Link to="#">
-                  <i className="icofont icofont-social-linkedin"></i>
-                </Link>
-               
                 <Link to="#">
                   <i className="icofont icofont-social-instagram"></i>
                 </Link>

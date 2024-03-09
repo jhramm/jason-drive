@@ -27,6 +27,7 @@
 /*-------------------------- 
 	1. Page Banner Title Area
 --------------------------*/
+
 .page-banner-area {
   background-image: url("../src/img/learner-car1.jpeg");
   background-repeat: no-repeat;
@@ -549,6 +550,7 @@
   position: absolute;
   left: 10%;
   top: 30%;
+  margin-top: 50px;
   margin-left: -150px;
 }
 
@@ -560,4 +562,15 @@
 .swiper-slide img {
   display: block;
   width: 100%;
+}
+
+.about-para {
+  font-size: 20px;
+  line-height: 2;
+  letter-spacing: 2px;
+}
+
+iframe {
+  border: 10px solid yellow;
+  border-radius: 10px;
 }

@@ -2,6 +2,7 @@ let express = require('express');
 let cors = require('cors');
 
 const Packages = require("./Models/Packages");
+const Users = require("./Models/Users");
 
 require("./DB/Conn");
 let app = express();
@@ -30,6 +31,20 @@ app.get("/packages", async (req, res) => {
   try {
     const allPackages = await Packages.find();
     res.status(200).send(allPackages);
+  }
+  catch {
+     res.status(404).send("External Server Error");
+  }
+})
+
+app.post("/users", (req, res) => {
+  try {
+    const user = new Users(req.body);
+    user.save().then(() => {
+      res.status(200).send(user);
+    }).catch(() => {
+      res.status(500).send("Could not save the user!");
+    })
   }
   catch {
      res.status(500).send("External Server Error");

@@ -11,7 +11,9 @@ import Testimonial from './Components/Testimonial';
 import FacebookFeed from './Components/FacebookFeed';
 import Prices from './Components/Prices';
 import Contact from './Components/Contact';
-
+import About from './Components/About';
+import BookOnline from './Components/BookOnline';
+import Blog from './Components/Blog';
 
 function App() {
   return (
@@ -47,6 +49,34 @@ function App() {
               <>
                 <BannerOverlay />
                 <Contact />
+              </>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <>
+                <BannerOverlay />
+                <About />
+                <CtaArea />
+              </>
+            }
+          />
+          <Route
+            path="/bookonline"
+            element={
+              <>
+                <BannerOverlay />
+                <BookOnline />
+              </>
+            }
+          />
+          <Route
+            path="/blog"
+            element={
+              <>
+                <BannerOverlay />
+                <Blog />
               </>
             }
           />
