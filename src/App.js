@@ -14,6 +14,7 @@ import Contact from './Components/Contact';
 import About from './Components/About';
 import BookOnline from './Components/BookOnline';
 import Blog from './Components/Blog';
+import Signup from './Components/Auth/Signup';
 
 function App() {
   return (
@@ -77,6 +78,15 @@ function App() {
               <>
                 <BannerOverlay />
                 <Blog />
+              </>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <>
+                <BannerOverlay />
+                <Signup />
               </>
             }
           />

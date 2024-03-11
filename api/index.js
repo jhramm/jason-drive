@@ -1,5 +1,6 @@
 let express = require('express');
 let cors = require('cors');
+let bcrypt = require('bcrypt');
 
 const Packages = require("./Models/Packages");
 const Users = require("./Models/Users");
@@ -37,20 +38,53 @@ app.get("/packages", async (req, res) => {
   }
 })
 
-app.post("/users", (req, res) => {
+app.post("/signup", async (req, res) => {
   try {
     const user = new Users(req.body);
-    user.save().then(() => {
-      res.status(200).send(user);
-    }).catch(() => {
-      res.status(500).send("Could not save the user!");
-    })
+
+    const findEmail = await Users.find({ email: req.body.email});
+    
+    if (findEmail.length === 0) {
+       user
+         .save()
+         .then(() => {
+           res.status(200).send(user);
+         })
+         .catch(() => {
+           res.status(404).send("Could not save the user!");
+         });
+    } else {
+       res.status(416).send("Email already exists");
+    }
+   
   }
   catch {
      res.status(500).send("External Server Error");
   }
 })
 
+app.post("/login", async (req, res) => {
+  try {
+    const findUser = await Users.findOne({email: req.body.email});
+
+    if (findUser !== null) {
+      const matchPassword = await bcrypt.compare(req.body.password, findUser.password);
+      if (matchPassword) {
+        res.status(200).send(findUser);
+      }
+      else {
+        res.status(416).send("Passwords do not match");
+      }
+    }
+    else {
+      res.status(404).send("user not found");
+    }
+
+  }
+  catch {
+     res.status(500).send("External Server Error");
+  }
+})
 
 app.listen(port, () => {
   console.log("Api is running on port: " + port);
