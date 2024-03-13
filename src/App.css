@@ -588,3 +588,14 @@ iframe {
   padding: 10px;
   border-radius: 5px;
 }
+.error {
+  color: red !important;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.form h5 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}

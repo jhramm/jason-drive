@@ -1,20 +1,21 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
-import BannerOverlay from './Components/BannerOverlay';
-import Content from './Components/Content';
-import CtaArea from './Components/CtaArea';
-import Features from './Components/Features';
-import Testimonial from './Components/Testimonial';
-import FacebookFeed from './Components/FacebookFeed';
-import Prices from './Components/Prices';
-import Contact from './Components/Contact';
-import About from './Components/About';
-import BookOnline from './Components/BookOnline';
-import Blog from './Components/Blog';
+import Header from './Components/ClientSide/Header';
+import Footer from './Components/ClientSide/Footer';
+import BannerOverlay from './Components/ClientSide/BannerOverlay';
+import Content from './Components/ClientSide/Content';
+import CtaArea from './Components/ClientSide/CtaArea';
+import Features from './Components/ClientSide/Features';
+import Testimonial from './Components/ClientSide/Testimonial';
+import FacebookFeed from './Components/ClientSide/FacebookFeed';
+import Prices from './Components/ClientSide/Prices';
+import Contact from './Components/ClientSide/Contact';
+import About from './Components/ClientSide/About';
+import BookOnline from './Components/ClientSide/BookOnline';
+import Blog from './Components/ClientSide/Blog';
 import Signup from './Components/Auth/Signup';
+import Instructorlogin from './Components/Auth/InstructorLogin';
 
 function App() {
   return (
@@ -87,6 +88,15 @@ function App() {
               <>
                 <BannerOverlay />
                 <Signup />
+              </>
+            }
+          />
+          <Route
+            path="/instructorlogin"
+            element={
+              <>
+                <BannerOverlay />
+                <Instructorlogin />
               </>
             }
           />

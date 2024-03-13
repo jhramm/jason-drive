@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Logo2 from "../img/logo2.png";
+import Logo2 from "../../img/logo2.png";
 
 export default function NavBar() {
 const [ isActive, setIsActive ] = useState("home");

@@ -4,10 +4,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper/core";
 import { Autoplay } from "swiper/modules";
 
-import img1 from "../img/driver-training.jpeg";
-import img2 from "../img/learn-to-drive.jpeg";
-import img3 from "../img/pupil1.jpeg";
-import img4 from "../img/pass1.jpeg";
+import img1 from "../../img/driver-training.jpeg";
+import img2 from "../../img/learn-to-drive.jpeg";
+import img3 from "../../img/pupil1.jpeg";
+import img4 from "../../img/pass1.jpeg";
 import "swiper/css";
 import "swiper/css/effect-cube";
 import "swiper/css/pagination";

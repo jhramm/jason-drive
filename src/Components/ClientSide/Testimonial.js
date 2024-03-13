@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
-import Female from "../img/female.png";
-import Male from "../img/male.png";
+import Female from "../../img/female.png";
+import Male from "../../img/male.png";
 
 export default function Testimonial() {
   const settings = {

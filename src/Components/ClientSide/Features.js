@@ -1,5 +1,5 @@
 import React from 'react'
-import LearnerPupil from '../img/learner-pupil.jpeg';
+import LearnerPupil from '../../img/learner-pupil.jpeg';
 
 export default function Features() {
   return (
