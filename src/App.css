@@ -599,3 +599,26 @@ iframe {
   font-weight: bold;
   text-transform: uppercase;
 }
+
+.signin-btn {
+  margin-top: -10px;
+  border-radius: 5px;
+  background-color: #dec839;
+  color: white;
+}
+
+.signin-btn:hover {
+  border: 2px solid #dec839;
+  color: #dec839;
+}
+.css-17tvlhv:hover {
+  color: black !important;
+  background: white !important;
+}
+.css-17tvlhv.active {
+  color: black !important;
+}
+.logout-btn {
+  color: #dec839 !important;
+  font-weight: bold !important;
+}

@@ -16,6 +16,7 @@ import BookOnline from './Components/ClientSide/BookOnline';
 import Blog from './Components/ClientSide/Blog';
 import Signup from './Components/Auth/Signup';
 import Instructorlogin from './Components/Auth/InstructorLogin';
+import Signin from './Components/ClientSide/Signin';
 
 function App() {
   return (
@@ -92,6 +93,15 @@ function App() {
             }
           />
           <Route
+            path="/signin"
+            element={
+              <>
+                <BannerOverlay />
+                <Signin />
+              </>
+            }
+          />
+          <Route
             path="/instructorlogin"
             element={
               <>
@@ -100,6 +110,7 @@ function App() {
               </>
             }
           />
+         
         </Routes>
         <Footer />
       </div>

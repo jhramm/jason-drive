@@ -1,12 +1,35 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo2 from "../../img/logo2.png";
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Button,
+  Avatar,
+  Flex
+} from "@chakra-ui/react";
+import { ChevronDownIcon } from "@chakra-ui/icons";
+
 
 export default function NavBar() {
 const [ isActive, setIsActive ] = useState("home");
+const isLogin = JSON.parse(localStorage.getItem("signin"));
+const firstName = localStorage.getItem("firstName");
+const email = localStorage.getItem("email");
+const navigate = useNavigate();
+
 function handleTabClick(tab) {
     setIsActive(tab);
+}
+
+function handleLogout() {
+  localStorage.removeItem("signin");
+  localStorage.removeItem("firstName");
+  localStorage.removeItem("email");
+  navigate("/signin");
 }
 
   return (
@@ -38,22 +61,10 @@ function handleTabClick(tab) {
                     services<i className="icofont icofont-simple-down"></i>
                   </Link>
                 </li>
-                {/* <li
-                  className={isActive === "prices" ? "active" : ""}
-                  onClick={() => handleTabClick("prices")}
-                >
-                  <Link to="/prices">
-                    Prices<i className="icofont"></i>
-                  </Link>
-                </li> */}
                 <li>
                   <Link to="/blog">
                     blog<i className="icofont"></i>
                   </Link>
-                  {/* <ul>
-									<li><Link to="blog.html">Blog</Link></li>
-									<li><Link to="blog-details.html">Blog Details</Link></li>
-								</ul> */}
                 </li>
                 <li
                   className={isActive === "contact" ? "active" : ""}
@@ -65,12 +76,55 @@ function handleTabClick(tab) {
                   <Link>
                     Location list<i className="icofont icofont-simple-down"></i>
                   </Link>
-                  {/* <ul>
-									<li><Link to="gallery-2-column.html">Gallary 2 Column</Link></li>
-									<li><Link to="gallery-3-column.html">Gallary 3 Column</Link></li>
-									<li><Link to="gallery.html">Gallary 4 Column</Link></li>
-								</ul> */}
                 </li>
+                {isLogin ? (
+                  <>
+                    <li
+                      className={isActive === "contact" ? "active" : ""}
+                      onClick={() => handleTabClick("contact")}
+                    >
+                      <Menu>
+                        <MenuButton
+                          as={Button}
+                          rightIcon={<ChevronDownIcon />}
+                          marginTop={-3}
+                          background={"transparent"}
+                          color="yellow"
+                          _active={{
+                            backgroundColor: "teal.200",
+                            color: "black",
+                            border: "2px solid #dec839",
+                          }}
+                        >
+                          <Flex alignItems={"center"} gap={2}>
+                            <Avatar
+                              style={{ width: "30px", height: "30px" }}
+                              bg="teal.500"
+                            />
+                            <span className="logout-btn"> {firstName}</span>
+                          </Flex>
+                        </MenuButton>
+                        <MenuList>
+                          <MenuItem>{email}</MenuItem>
+                          <MenuItem onClick={handleLogout}>
+                            <button>Logout</button>
+                          </MenuItem>
+                        </MenuList>
+                      </Menu>
+                    </li>
+                  </>
+                ) : (
+                  <li
+                    className={isActive === "Signin" ? "active" : ""}
+                    onClick={() => handleTabClick("signin")}
+                  >
+                    <Link to="/signin">
+                      <button className="btn btn-warning signin-btn">
+                        Login
+                      </button>
+                    </Link>
+                  </li>
+                )}
               </ul>
             </nav>
           </div>
