@@ -120,11 +120,21 @@ function handleLogout() {
                   >
                     <Link to="/signin">
                       <button className="btn btn-warning signin-btn">
-                        Login
+                       Pupil
                       </button>
                     </Link>
                   </li>
-                )}
+                )} 
+                  <li
+                    className={isActive === "Signin" ? "active" : ""}
+                    onClick={() => handleTabClick("signin")}
+                  >
+                    <Link to="/instructorlogin">
+                      <button className="btn btn-warning signin-btn">
+                        Instructor
+                      </button>
+                    </Link>
+                  </li>
               </ul>
             </nav>
           </div>

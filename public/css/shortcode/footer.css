@@ -2,7 +2,7 @@
 	Footer Style
 --------------------------*/
 .footer-area {
-  background: rgba(0, 0, 0, 0) url("../../img/section-bg/footer.jpg") repeat scroll center center;
+  background: rgba(0, 0, 0, 0) url("../../../src/img/road-img.jpeg") repeat scroll center center;
   -webkit-background-size: cover;
   background-size: cover;
 }

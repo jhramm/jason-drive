@@ -17,17 +17,21 @@ import Blog from './Components/ClientSide/Blog';
 import Signup from './Components/Auth/Signup';
 import Instructorlogin from './Components/Auth/InstructorLogin';
 import Signin from './Components/ClientSide/Signin';
+import SubOverlay from './Components/ClientSide/SubOverlay';
+import AdminPanel from './Components/AdminSide/AdminPanel/AdminPanel';
+import AdminHeader from './Components/AdminSide/AdminHeader/AdminHeader';
+import Calendar from './Components/AdminSide/AdminPanel/Calendar';
 
 function App() {
   return (
     <Router>
       <div className="wrapper dark-wrapper fix">
-        <Header />
         <Routes>
           <Route
             path="/"
             element={
               <>
+                <Header />
                 <BannerOverlay />
                 <Content />
                 <Features />
@@ -41,7 +45,8 @@ function App() {
             path="/prices"
             element={
               <>
-                <BannerOverlay />
+                <Header />
+                <SubOverlay headerName="Prices" />
                 <Prices />
               </>
             }
@@ -50,7 +55,8 @@ function App() {
             path="/contact"
             element={
               <>
-                <BannerOverlay />
+                <Header />
+                <SubOverlay headerName="Contact" />
                 <Contact />
               </>
             }
@@ -59,7 +65,8 @@ function App() {
             path="/about"
             element={
               <>
-                <BannerOverlay />
+                <Header />
+                <SubOverlay headerName="About" />
                 <About />
                 <CtaArea />
               </>
@@ -69,7 +76,8 @@ function App() {
             path="/bookonline"
             element={
               <>
-                <BannerOverlay />
+                <Header />
+                <SubOverlay headerName="Book Online" />
                 <BookOnline />
               </>
             }
@@ -78,7 +86,8 @@ function App() {
             path="/blog"
             element={
               <>
-                <BannerOverlay />
+                <Header />
+                <SubOverlay headerName="Blog" />
                 <Blog />
               </>
             }
@@ -87,7 +96,8 @@ function App() {
             path="/signup"
             element={
               <>
-                <BannerOverlay />
+                <Header />
+                <SubOverlay headerName="Signup" />
                 <Signup />
               </>
             }
@@ -96,7 +106,8 @@ function App() {
             path="/signin"
             element={
               <>
-                <BannerOverlay />
+                <Header />
+                <SubOverlay headerName="Signin" />
                 <Signin />
               </>
             }
@@ -105,12 +116,32 @@ function App() {
             path="/instructorlogin"
             element={
               <>
-                <BannerOverlay />
+                <Header />
+                <SubOverlay headerName="Instructor Login" />
                 <Instructorlogin />
               </>
             }
           />
-         
+          <Route
+            path="/adminPanel"
+            element={
+              <>
+                <AdminHeader />
+                <SubOverlay headerName="Admin Panel" />
+                <AdminPanel />
+              </>
+            }
+          />
+          <Route
+            path="/calendar"
+            element={
+              <>
+                <AdminHeader />
+                <SubOverlay headerName="Calendar" />
+                <Calendar />
+              </>
+            }
+          />
         </Routes>
         <Footer />
       </div>

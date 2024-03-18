@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import "react-notifications/lib/notifications.css";
+import { useNavigate } from 'react-router-dom';
 
 export default function InstructorLogin() {
    const [errors, setErrors] = useState({
     username: "",
     password: "",
    });
-
+    const navigate = useNavigate();
     const login = (e) => {
         e.preventDefault();
         const username = document.getElementById("username").value;
@@ -32,8 +33,9 @@ export default function InstructorLogin() {
             password
         }
 
-        axios.post('https://drivinginstructorsdiary.com/app/api/auth', payload).then(() => {
+        axios.post('https://drivinginstructorsdiary.com/app/api/auth', payload).then((res) => {
           NotificationManager.success("Login successful");
+          navigate("/adminPanel", {state: {data: res.data.data.user}});
         }).catch((e) => {
           NotificationManager.error("Unable to login");
           console.log(e)
