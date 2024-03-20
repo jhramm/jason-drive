@@ -622,3 +622,8 @@ iframe {
   color: #dec839 !important;
   font-weight: bold !important;
 }
+
+.tableBtn {
+   padding-top: 20px;
+   text-transform: uppercase;
+}

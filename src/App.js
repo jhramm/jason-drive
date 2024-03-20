@@ -21,6 +21,7 @@ import SubOverlay from './Components/ClientSide/SubOverlay';
 import AdminPanel from './Components/AdminSide/AdminPanel/AdminPanel';
 import AdminHeader from './Components/AdminSide/AdminHeader/AdminHeader';
 import Calendar from './Components/AdminSide/AdminPanel/Calendar';
+import AllPupils from './Components/AdminSide/AdminPanel/AllPupils';
 
 function App() {
   return (
@@ -139,6 +140,16 @@ function App() {
                 <AdminHeader />
                 <SubOverlay headerName="Calendar" />
                 <Calendar />
+              </>
+            }
+          />
+          <Route
+            path="/allpupils"
+            element={
+              <>
+                <AdminHeader />
+                <SubOverlay headerName="All pupils" />
+                <AllPupils />
               </>
             }
           />

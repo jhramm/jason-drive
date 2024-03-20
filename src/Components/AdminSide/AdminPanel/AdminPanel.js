@@ -1,10 +1,14 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
+  Box,
   Button,
   Card,
   CardBody,
   CardFooter,
+  CircularProgress,
+  CircularProgressLabel,
+  Flex,
   Heading,
   Image,
   Stack,
@@ -35,7 +39,7 @@ export default function AdminPanel() {
           Last Logged in : <span>{data.last_login}</span>
         </p>
       </div>
-      
+
       <div className="panel-container overlay overlay-black overlay-80">
         <div className="panel-item">
           <Card
@@ -46,7 +50,7 @@ export default function AdminPanel() {
           >
             <Image
               objectFit="cover"
-              maxW={{ base: "70%", sm: "150px" }}
+              maxW={{ base: "100%", sm: "150px" }}
               src={Calendar}
               alt="Calendar"
             />
@@ -80,7 +84,7 @@ export default function AdminPanel() {
           >
             <Image
               objectFit="cover"
-              maxW={{ base: "80%", sm: "150px" }}
+              maxW={{ base: "100%", sm: "150px" }}
               src={Bookings}
               alt="Bookings"
             />
@@ -112,7 +116,7 @@ export default function AdminPanel() {
           >
             <Image
               objectFit="cover"
-              maxW={{ base: "80%", sm: "150px" }}
+              maxW={{ base: "100%", sm: "150px" }}
               src={Messages}
               alt="Messages"
             />
@@ -146,7 +150,7 @@ export default function AdminPanel() {
           >
             <Image
               objectFit="cover"
-              maxW={{ base: "70%", sm: "150px" }}
+              maxW={{ base: "100%", sm: "150px" }}
               src={LearnerPupil}
               alt="Pupils"
             />
@@ -156,6 +160,7 @@ export default function AdminPanel() {
                 <Heading size="md">PUPILS</Heading>
 
                 <Text py="1">
+                  pupils: {data.total}
                   Caffè latte is a coffee beverage of Italian origin made with
                   espresso and steamed milk.
                 </Text>
@@ -178,7 +183,7 @@ export default function AdminPanel() {
           >
             <Image
               objectFit="cover"
-              maxW={{ base: "80%", sm: "150px" }}
+              maxW={{ base: "100%", sm: "150px" }}
               src={WeekIncome}
               alt="Weekly Income"
             />
@@ -210,7 +215,7 @@ export default function AdminPanel() {
           >
             <Image
               objectFit="cover"
-              maxW={{ base: "80%", sm: "150px" }}
+              maxW={{ base: "100%", sm: "150px" }}
               src={TotalIncome}
               alt="Total Income"
             />
@@ -233,6 +238,112 @@ export default function AdminPanel() {
             </Stack>
           </Card>
         </div>
+      </div>
+
+      <div className="instruct-id overlay overlay-black overlay-80">
+        <Box>
+          <Heading textAlign={'center'} pb={10}>ACCOUNT STATISTICS</Heading>
+          <Flex
+            justifyContent={"space-around"}
+            flexWrap={"wrap"}
+            gap={3}
+            paddingBottom={10}
+          >
+            <Box
+              flexDirection={"column"}
+              p={10}
+              pt={20}
+              borderRadius={10}
+              width={300}
+              backgroundColor={"#4c4c4c"}
+              border={"2px solid white"}
+              textAlign={"center"}
+            >
+              <Heading fontSize={25} pb={5}>
+                No. of Lessons
+              </Heading>
+              <CircularProgress
+                value={data.has_lesson_created}
+                size="120px"
+                color="green.400"
+              >
+                <CircularProgressLabel fontSize={"15px"} color={"white"}>
+                  {data.has_lesson_created} Lessons
+                </CircularProgressLabel>
+              </CircularProgress>
+            </Box>
+            <Box
+              flexDirection={"column"}
+              p={10}
+              pt={20}
+              borderRadius={10}
+              width={300}
+              backgroundColor={"#4c4c4c"}
+              border={"2px solid white"}
+              textAlign={"center"}
+            >
+              <Heading fontSize={25} pb={5}>
+                Instructor Priority
+              </Heading>
+              <CircularProgress
+                value={data.instructor_priority}
+                size="120px"
+                color="green.400"
+                max={3}
+              >
+                <CircularProgressLabel fontSize={"15px"} color={"white"}>
+                  {data.instructor_priority}
+                </CircularProgressLabel>
+              </CircularProgress>
+            </Box>
+            <Box
+              flexDirection={"column"}
+              p={10}
+              pt={20}
+              borderRadius={10}
+              width={300}
+              backgroundColor={"#4c4c4c"}
+              border={"2px solid white"}
+              textAlign={"center"}
+            >
+              <Heading fontSize={25} pb={5}>
+                Waiting List
+              </Heading>
+              <CircularProgress
+                value={data.waiting_list}
+                size="120px"
+                color="green.400"
+              >
+                <CircularProgressLabel fontSize={"15px"} color={"white"}>
+                  {data.waiting_list} Pupils
+                </CircularProgressLabel>
+              </CircularProgress>
+            </Box>
+            <Box
+              flexDirection={"column"}
+              p={10}
+              pt={20}
+              borderRadius={10}
+              width={300}
+              backgroundColor={"#4c4c4c"}
+              border={"2px solid white"}
+              textAlign={"center"}
+            >
+              <Heading fontSize={25} pb={5}>
+                Pupil Caution
+              </Heading>
+              <CircularProgress
+                value={data.pupil_caution}
+                size="120px"
+                color="green.400"
+              >
+                <CircularProgressLabel fontSize={"15px"} color={"white"}>
+                  {data.pupil_caution} Pupils
+                </CircularProgressLabel>
+              </CircularProgress>
+            </Box>
+          </Flex>
+        </Box>
       </div>
     </>
   );

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 export default function SubMenu(props) {
   return (
-    <div class="container">
-      <div class="row">
-        <div class="page-banner text-center col-12">
+    <div className="container">
+      <div className="row">
+        <div className="page-banner text-center col-12">
           <h1>{props.headerName}</h1>
           <ul>
             <li>

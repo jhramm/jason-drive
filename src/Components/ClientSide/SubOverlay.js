@@ -7,7 +7,7 @@ export default function SubOverlay(props) {
 
 
   return (
-    <div class="page-banner-area overlay overlay-black overlay-70">
+    <div className="page-banner-area overlay overlay-black overlay-70">
      <SubMenu headerName={props.headerName}/>
     </div>
   );

@@ -16,8 +16,8 @@ export default function SideNavbar() {
                   <Link to="/calendar">My Diary</Link>
                 </li>
                 <li>
-                  <Link>
-                    services
+                  <Link to="/allpupils">
+                    All pupils
                   </Link>
                 </li>
                 <li>
