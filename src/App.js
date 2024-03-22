@@ -22,6 +22,10 @@ import AdminPanel from './Components/AdminSide/AdminPanel/AdminPanel';
 import AdminHeader from './Components/AdminSide/AdminHeader/AdminHeader';
 import Calendar from './Components/AdminSide/AdminPanel/Calendar';
 import AllPupils from './Components/AdminSide/AdminPanel/AllPupils';
+import TransactionList from './Components/AdminSide/AdminPanel/TransactionList';
+import Bookings from './Components/AdminSide/AdminPanel/Bookings';
+import AllMessages from './Components/AdminSide/AdminPanel/AllMessages';
+import FinancialSummary from './Components/AdminSide/AdminPanel/FinancialSummary';
 
 function App() {
   return (
@@ -150,6 +154,46 @@ function App() {
                 <AdminHeader />
                 <SubOverlay headerName="All pupils" />
                 <AllPupils />
+              </>
+            }
+          />
+          <Route
+            path="/transactionList"
+            element={
+              <>
+                <AdminHeader />
+                <SubOverlay headerName="Transactions List" />
+                <TransactionList />
+              </>
+            }
+          />
+          <Route
+            path="/financialSummary"
+            element={
+              <>
+                <AdminHeader />
+                <SubOverlay headerName="Financial Summary" />
+                <FinancialSummary />
+              </>
+            }
+          />
+          <Route
+            path="/bookings"
+            element={
+              <>
+                <AdminHeader />
+                <SubOverlay headerName="Bookings" />
+                <Bookings />
+              </>
+            }
+          />
+          <Route
+            path="/allmessages"
+            element={
+              <>
+                <AdminHeader />
+                <SubOverlay headerName="All Messages" />
+                <AllMessages />
               </>
             }
           />

@@ -8,7 +8,7 @@ export default function SideNavbar() {
             <nav>
               <ul>
                 <li>
-                  <Link>Admin Panel</Link>
+                  <Link to="/adminPanel">Admin Panel</Link>
                 </li>
                 <li
                  
@@ -21,18 +21,18 @@ export default function SideNavbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/blog">
-                    blog
+                  <Link to="/transactionList">
+                   Transactions List
                   </Link>
                 </li>
                 <li
                  
                 >
-                  <Link to="/contact">contact</Link>
+                  <Link to="/bookings">Bookings</Link>
                 </li>
                 <li>
-                  <Link>
-                    Location list
+                  <Link to="/allmessages">
+                    All Messages
                   </Link>
                 </li>
               </ul>

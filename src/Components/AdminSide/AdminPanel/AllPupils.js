@@ -3,7 +3,6 @@ import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
@@ -12,10 +11,18 @@ import {
   Flex,
   Button,
   Box,
+  Badge,
+  Spinner,
+  Heading,
 } from "@chakra-ui/react";
+import axios from "axios";
+import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
+import PupilModal from "./PupilModal";
 
 export default function AllPupils() {
   let [pupil, setPupil] = useState([]);
+  let [isActive, setIsActive] = useState("active");
+  let [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getData = async () => {
@@ -27,25 +34,32 @@ export default function AllPupils() {
       }
 
       const data = { instructor_id: instructorId };
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      };
-
-      try {
-        const response = await fetch(
-          "https://drivinginstructorsdiary.com/app/api/viewPupilApi/active",
-          requestOptions
-        );
-        const resonseData = await response.json();
-        setPupil(resonseData);
-      } catch (err) {
-        console.error("Error fetching Pupil", err);
-      }
+      axios
+        .post(
+          `https://drivinginstructorsdiary.com/app/api/viewPupilApi/${isActive}`,
+          data
+        )
+        .then((res) => {
+          console.log(res.data.data.data);
+          setPupil(res.data.data.data);
+          setLoading(false);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     };
     getData();
-  }, []);
+  }, [isActive, loading]);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -53,64 +67,84 @@ export default function AllPupils() {
         <h1 className="tableBtn ">Pupil List</h1>
         <Flex justifyContent="center" mt={30}>
           <Box>
-            <Button marginRight={5} bg={"green"}>
+            <Button
+              marginRight={5}
+              bg={"green"}
+              onClick={() => setIsActive("active")}
+            >
               Active
             </Button>
-            <Button bg={"orange"}>Inactive</Button>
+            <Button bg={"orange"} onClick={() => setIsActive("inactive")}>
+              Inactive
+            </Button>
           </Box>
         </Flex>
 
         <Flex justifyContent="center">
-          <TableContainer maxWidth={"100%"} mt={10}>
-            <Table variant="simple" size={"lg"}>
-              <TableCaption>Active and Inactive Pupils</TableCaption>
+          <TableContainer maxWidth={"100%"} mt={10} pb={5}>
+            <Table variant="simple" size={"lg"} color={"white"}>
+              <TableCaption color={"white"}>
+                Active and Inactive Pupils
+              </TableCaption>
               <Thead>
                 <Tr>
-                  <Th>First Name</Th>
-                  <Th>Last Name</Th>
-                  <Th>Email</Th>
-                  <Th>Status</Th>
-                  <Th>Actions</Th>
+                  <Th color={"white"}>First Name</Th>
+                  <Th color={"white"}>Last Name</Th>
+                  <Th color={"white"}>Email</Th>
+                  <Th color={"white"}>Status</Th>
+                  <Th color={"white"}>Actions</Th>
                 </Tr>
               </Thead>
-              <Tbody>
-                <Tr>
-                  <Td>inches</Td>
-                  <Td>millimetres (mm)</Td>
-                  <Td isNumeric>25.4</Td>
-                  <Td isNumeric>25.4</Td>
-                  <Td isNumeric>25.4</Td>
-                </Tr>
-                <Tr>
-                  <Td>feet</Td>
-                  <Td>centimetres (cm)</Td>
-                  <Td isNumeric>30.48</Td>
-                  <Td isNumeric>30.48</Td>
-                  <Td isNumeric>30.48</Td>
-                </Tr>
-                <Tr>
-                  <Td>yards</Td>
-                  <Td>metres (m)</Td>
-                  <Td isNumeric>0.91444</Td>
-                  <Td isNumeric>0.91444</Td>
-                  <Td isNumeric>0.91444</Td>
-                </Tr>
-              </Tbody>
-              <Tfoot>
-                <Tr>
-                  <Th>To convert</Th>
-                  <Th>into</Th>
-                  <Th isNumeric>multiply by</Th>
-                  <Th isNumeric>multiply by</Th>
-                  <Th isNumeric>multiply by</Th>
-                </Tr>
-              </Tfoot>
+              {loading === false ? (
+                <>
+                  <Tbody>
+                    {pupil.map((item) => {
+                      return (
+                        <Tr>
+                          <Td>{item.first_name}</Td>
+                          <Td>{item.last_name}</Td>
+                          <Td>{item.email}</Td>
+                          <Td>
+                            {isActive === "active" ? (
+                              <>
+                                <Badge bg="green">Active</Badge>
+                              </>
+                            ) : (
+                              <>
+                                <Badge bg="red">Inactive</Badge>
+                              </>
+                            )}
+                          </Td>
+                          <Td>
+                            <Flex gap={5} justifyContent={"center"}>
+                              <EditIcon onClick={openModal} />
+                              <DeleteIcon />
+                            </Flex>
+                          </Td>
+                        </Tr>
+                      );
+                    })}
+                  </Tbody>
+                </>
+              ) : (
+                <>
+                  <Spinner color="white" size={"xl"} />
+                </>
+              )}
             </Table>
           </TableContainer>
         </Flex>
-        {pupil.map((item) => {
-          return <h1 key={item.id}>{item.first_name}</h1>;
-        })}
+      </div>
+      <div>
+        <PupilModal isOpen={isOpen} onClose={closeModal}>
+          <Flex justifyContent={"right"} fontSize={20}>
+            <button onClick={closeModal}>X</button>
+          </Flex>
+          <Heading color={"white"}>Edit Pupil Details</Heading>
+          <p>This is the content of the modal.</p>
+          <Button onClick={closeModal} mr={5}>Close</Button>
+          <Button>Update</Button>
+        </PupilModal>
       </div>
     </>
   );

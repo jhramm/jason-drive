@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link} from "react-router-dom";
 import {
   Box,
   Button,
@@ -23,8 +23,7 @@ import WeekIncome from "../../../img/week-income.jpg";
 import TotalIncome from "../../../img/total-income.jpg";
 
 export default function AdminPanel() {
-  const location = useLocation();
-  const data = location.state?.data;
+  const data = JSON.parse(localStorage.getItem('getAll'));
   return (
     <>
       <div className="instruct-id overlay overlay-black overlay-80">

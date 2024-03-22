@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import Logo2 from "../../../img/logo2.png";
 import {
   Drawer,
-  DrawerFooter,
+  
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
   Button,
-  useDisclosure
+  useDisclosure,
+  
 } from "@chakra-ui/react";
 
 import { HamburgerIcon } from "@chakra-ui/icons";
@@ -58,11 +59,7 @@ export default function NavBar() {
         <div className="container">
           <div className="row justify-content-between">
             <div className="navbar-header col-auto">
-              <Button
-                ref={btnRef}
-                colorScheme="yellow"
-                onClick={onOpen}
-              >
+              <Button ref={btnRef} colorScheme="yellow" onClick={onOpen}>
                 <HamburgerIcon />
               </Button>
               <Drawer
@@ -79,18 +76,18 @@ export default function NavBar() {
                   </DrawerHeader>
                   <SideNavbar />
 
-                  <DrawerFooter>
+                  {/* <DrawerFooter>
                     <Button
                       color={"white"}
                       variant="outline"
-                      mr={3}
+                      mr={1}
+                      mt={3}
                       onClick={onClose}
                       _hover={{ color: "red.500" }}
                     >
                       Cancel
                     </Button>
-                    <Button colorScheme="blue">Save</Button>
-                  </DrawerFooter>
+                  </DrawerFooter> */}
                 </DrawerContent>
               </Drawer>
             </div>

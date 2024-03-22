@@ -35,7 +35,10 @@ export default function InstructorLogin() {
 
         axios.post('https://drivinginstructorsdiary.com/app/api/auth', payload).then((res) => {
           NotificationManager.success("Login successful");
-          navigate("/adminPanel", {state: {data: res.data.data.user}});
+          console.log(res);
+          localStorage.setItem("instructor_id", res.data.data.user.id);
+          localStorage.setItem("getAll", JSON.stringify(res.data.data.user));
+          navigate("/adminPanel");
         }).catch((e) => {
           NotificationManager.error("Unable to login");
           console.log(e)
@@ -87,6 +90,8 @@ export default function InstructorLogin() {
          <p className="form-messege"></p>
        </div>
      </div>
+     
    </div>
+   
  );
 }
