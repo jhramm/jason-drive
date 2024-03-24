@@ -13,7 +13,6 @@ import {
   Box,
   Badge,
   Spinner,
-  Heading,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
@@ -52,8 +51,10 @@ export default function AllPupils() {
   }, [isActive, loading]);
 
   const [isOpen, setIsOpen] = useState(false);
+  const [pupilId, setPupilId] = useState(0);
 
-  const openModal = () => {
+  const openModal = (id) => {
+    setPupilId(id);
     setIsOpen(true);
   };
 
@@ -100,7 +101,7 @@ export default function AllPupils() {
                   <Tbody>
                     {pupil.map((item) => {
                       return (
-                        <Tr>
+                        <Tr key={item.id}>
                           <Td>{item.first_name}</Td>
                           <Td>{item.last_name}</Td>
                           <Td>{item.email}</Td>
@@ -117,8 +118,11 @@ export default function AllPupils() {
                           </Td>
                           <Td>
                             <Flex gap={5} justifyContent={"center"}>
-                              <EditIcon onClick={openModal} />
-                              <DeleteIcon />
+                              <EditIcon
+                                onClick={() => openModal(item.id)}
+                                cursor={"pointer"}
+                              />
+                              <DeleteIcon cursor={"pointer"} />
                             </Flex>
                           </Td>
                         </Tr>
@@ -136,14 +140,12 @@ export default function AllPupils() {
         </Flex>
       </div>
       <div>
-        <PupilModal isOpen={isOpen} onClose={closeModal}>
-          <Flex justifyContent={"right"} fontSize={20}>
-            <button onClick={closeModal}>X</button>
+        <PupilModal isOpen={isOpen} onClose={closeModal} pupilId={pupilId}>
+          <Flex pt={10}>
+            <Button onClick={closeModal} mr={5}>
+              Close
+            </Button>
           </Flex>
-          <Heading color={"white"}>Edit Pupil Details</Heading>
-          <p>This is the content of the modal.</p>
-          <Button onClick={closeModal} mr={5}>Close</Button>
-          <Button>Update</Button>
         </PupilModal>
       </div>
     </>

@@ -5,6 +5,7 @@ import {
   ModalContent,
   ModalBody,
   ModalCloseButton,
+  Heading,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
@@ -120,13 +121,11 @@ export default function AllMessages() {
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bg={"#252830"}color={"white"}>
           <ModalBody pb={10} pt={10}>
             <Flex pb={10}>
-              {" "}
-              <h1>Your Message</h1>
+              <Heading color={"white"}>Your Message</Heading>
             </Flex>
-            
 
             {selectedMessage && (
               <div
